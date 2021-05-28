@@ -22,10 +22,10 @@ export default Category;
 
 export async function getServerSideProps(context) {
   const products = await fetch(
-    `https://fakestoreapi.com/products/category/${context.params.category}`
+    `${process.env.FAKE_PRODUCT_API}/products/category/${context.params.category}`
   ).then((res) => res.json());
   const categories = await fetch(
-    "https://fakestoreapi.com/products/categories"
+    `${process.env.FAKE_PRODUCT_API}/products/categories`
   ).then((res) => res.json());
 
   return {
